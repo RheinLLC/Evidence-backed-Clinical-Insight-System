@@ -1,0 +1,30 @@
+Data Preparation Note
+====================
+Original sample count: 4999
+Dropped due to missing critical fields: 33
+Dropped duplicate records: 2
+Dropped abnormal short records (< 20 words): 61
+Final sample count after cleaning and top-12 filtering: 3848
+
+Selected specialties (top 12):
+- Surgery: 1079
+- Consult - History and Phy.: 511
+- Cardiovascular / Pulmonary: 367
+- Orthopedic: 346
+- Radiology: 269
+- General Medicine: 257
+- Neurology: 222
+- Gastroenterology: 219
+- SOAP / Chart / Progress Notes: 165
+- Obstetrics / Gynecology: 154
+- Urology: 153
+- Discharge Summary: 106
+
+Split ratio:
+- Train: 70%
+- Validation: 15%
+- Test: 15%
+
+Train size: 2693
+Validation size: 577
+Test size: 578
