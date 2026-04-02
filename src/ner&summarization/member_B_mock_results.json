@@ -1,0 +1,124 @@
+[
+  {
+    "record_id": "REC_03166",
+    "predicted_specialty": "Consult - History and Phy.",
+    "evidence_summary": "Creatinine 1.0 on June 25, 2008, UA at that time was noted for 5-9 RBCs, renal ultrasound of 07/24/2008 revealed 6 mm left intrarenal stone, with no hydronephrosis. He indicates that this stone is not bothersome, prefers observation, need for hydration with a goal of making over 2 liters of urine within 24 hours is discussed.,2. Microhematuria, we discussed possible etiologies of this, and the patient is agreeable to cystoscopy in the near future.",
+    "extracted_entities": {
+      "diseases": [],
+      "symptoms": [
+        "Dysuria",
+        "Hematuria",
+        "Pain"
+      ],
+      "medications": []
+    },
+    "entity_counts": {
+      "diseases": 0,
+      "symptoms": 3,
+      "medications": 0
+    },
+    "note_length_words": 258
+  },
+  {
+    "record_id": "REC_02518",
+    "predicted_specialty": "General Medicine",
+    "evidence_summary": "As mentioned above is significant for history of seizure disorder, migraine headaches, coronary artery disease, CHF, apparently coronary stenting done, mitral valve prolapse, supraventricular tachycardia, pacemaker placement, colon cancer, and breast cancer. The patient has history of tobacco abuse as well as multiple illicit drug abuse.,REVIEW OF SYSTEMS: As mentioned above.,PHYSICAL EXAMINATION:,GENERAL: She is alert, awake, and oriented.,VITAL SIGNS: Her blood pressure is about 132/72, heart rate of about 87 per minute, respiratory rate of 16.,HEENT: Shows head is atraumatic. No oropharyngeal lesions noted.,NECK: Supple, no JV distention, no carotid bruits, and no lymphadenopathy.,LUNGS: Clear to auscultation bilaterally.,CARDIAC: Reveals regular rate and rhythm.,ABDOMEN: Soft, nontender, nondistended.",
+    "extracted_entities": {
+      "diseases": [
+        "Cancer",
+        "Coronary Artery Disease",
+        "Disease",
+        "Disorder",
+        "Mitral Valve Prolapse",
+        "Syndrome"
+      ],
+      "symptoms": [
+        "Ache",
+        "Chest Pain",
+        "Edema",
+        "Headache",
+        "Pain",
+        "Seizure",
+        "Tachycardia"
+      ],
+      "medications": [
+        "Dilantin",
+        "Elavil",
+        "Klonopin",
+        "Methadone",
+        "Morphine",
+        "Neurontin",
+        "Nitroglycerin",
+        "Phenergan",
+        "Thorazine"
+      ]
+    },
+    "entity_counts": {
+      "diseases": 6,
+      "symptoms": 7,
+      "medications": 9
+    },
+    "note_length_words": 659
+  },
+  {
+    "record_id": "REC_03019",
+    "predicted_specialty": "Consult - History and Phy.",
+    "evidence_summary": "He still has some fine motor issues, especially writing, but he is receiving help with that and math. He could do better with milk intake, but Mother states he does eat cheese and yogurt. He is having some behavior issues, and sometimes he tries to emulate his brother in some of his negative behaviors.,DEVELOPMENTAL ASSESSMENT:",
+    "extracted_entities": {
+      "diseases": [],
+      "symptoms": [
+        "Ache",
+        "Bleeding",
+        "Cough",
+        "Diarrhea",
+        "Dysuria",
+        "Fever",
+        "Headache",
+        "Rash",
+        "Shortness Of Breath",
+        "Vomiting"
+      ],
+      "medications": []
+    },
+    "entity_counts": {
+      "diseases": 0,
+      "symptoms": 10,
+      "medications": 0
+    },
+    "note_length_words": 327
+  },
+  {
+    "record_id": "REC_00871",
+    "predicted_specialty": "Surgery",
+    "evidence_summary": "An 83-year-old diabetic female presents today stating that she would like diabetic foot care.,O - On examination, the lateral aspect of her left great toenail is deeply ingrown. There is no hair growth seen on her toes, feet or lower legs.",
+    "extracted_entities": {
+      "diseases": [],
+      "symptoms": [],
+      "medications": []
+    },
+    "entity_counts": {
+      "diseases": 0,
+      "symptoms": 0,
+      "medications": 0
+    },
+    "note_length_words": 80
+  },
+  {
+    "record_id": "REC_02662",
+    "predicted_specialty": "Gastroenterology",
+    "evidence_summary": "He, therefore, comes to the operating room today for surgical closure of his gastrostomy.,OPERATIVE PROCEDURE: An elliptical incision was made around the gastrostomy site and carried down through skin and subcutaneous tissue with sharp dissection. A dressing was applied, and the child was awakened and taken to the recovery room in satisfactory condition.",
+    "extracted_entities": {
+      "diseases": [],
+      "symptoms": [
+        "Ache"
+      ],
+      "medications": []
+    },
+    "entity_counts": {
+      "diseases": 0,
+      "symptoms": 1,
+      "medications": 0
+    },
+    "note_length_words": 191
+  }
+]
