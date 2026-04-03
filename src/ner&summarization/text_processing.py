@@ -20,9 +20,12 @@ medical entity extractor so the pipeline still runs end-to-end.
 import re
 import json
 import warnings
+
 import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
+
+from src.config import INTERIM_DATA_DIR, NER_SUMMARIZATION_DIR
 
 # ---------------------------------------------------------------------------
 # Attempt to load scispaCy; fall back to rule-based NER if unavailable
@@ -303,19 +306,16 @@ def format_evidence_layer(
 # ============================================================================
 
 if __name__ == "__main__":
-    import os
-
     # --- Configuration ---
-    SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-    TEST_CSV = os.path.join(SCRIPT_DIR, "test.csv")
-    OUTPUT_FILE = os.path.join(SCRIPT_DIR, "member_B_mock_results.json")
+    TEST_CSV = INTERIM_DATA_DIR / "test.csv"
+    OUTPUT_FILE = NER_SUMMARIZATION_DIR / "member_B_mock_results.json"
     NUM_SAMPLES = 5
 
     # --- Load test data ---
-    if not os.path.exists(TEST_CSV):
+    if not TEST_CSV.exists():
         raise FileNotFoundError(
             f"Cannot find '{TEST_CSV}'. "
-            "Please place test.csv in the same directory as this script."
+            "Please make sure data/interim/test.csv exists."
         )
 
     df = pd.read_csv(TEST_CSV)

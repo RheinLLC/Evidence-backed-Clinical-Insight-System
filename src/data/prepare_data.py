@@ -1,8 +1,10 @@
-import os
 import re
+
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+
+from src.config import INTERIM_DATA_DIR, RAW_DATA_DIR
 
 
 def clean_text(text: str) -> str:
@@ -27,20 +29,19 @@ def count_words(text: str) -> int:
 
 def main():
     # ========= 1. Config =========
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    input_file = os.path.join(script_dir, "mtsamples.csv")
-    output_dir = os.path.join(script_dir, "member1_outputs")
+    input_file = RAW_DATA_DIR / "mtsamples.csv"
+    output_dir = INTERIM_DATA_DIR
     top_n_specialties = 12
     min_word_threshold = 20
     random_state = 42
 
-    os.makedirs(output_dir, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     # ========= 2. Check input file =========
-    if not os.path.exists(input_file):
+    if not input_file.exists():
         raise FileNotFoundError(
             f"Cannot find input file: {input_file}\n"
-            f"Please make sure 'mtsamples.csv' is in the same folder as prepare_data.py."
+            "Please make sure 'mtsamples.csv' is under data/raw."
         )
 
     # ========= 3. Load data =========
@@ -109,7 +110,7 @@ def main():
     df.insert(0, "record_id", [f"REC_{i:05d}" for i in range(1, len(df) + 1)])
 
     # ========= 10. Save cleaned dataset =========
-    cleaned_path = os.path.join(output_dir, "cleaned_dataset.csv")
+    cleaned_path = output_dir / "cleaned_dataset.csv"
     df.to_csv(cleaned_path, index=False)
 
     # ========= 11. Train / val / test split =========
@@ -132,9 +133,9 @@ def main():
     val_df = val_df.reset_index(drop=True)
     test_df = test_df.reset_index(drop=True)
 
-    train_path = os.path.join(output_dir, "train.csv")
-    val_path = os.path.join(output_dir, "val.csv")
-    test_path = os.path.join(output_dir, "test.csv")
+    train_path = output_dir / "train.csv"
+    val_path = output_dir / "val.csv"
+    test_path = output_dir / "test.csv"
 
     train_df.to_csv(train_path, index=False)
     val_df.to_csv(val_path, index=False)
@@ -149,7 +150,7 @@ def main():
     plt.xticks(rotation=45, ha="right")
     plt.tight_layout()
 
-    plot_path = os.path.join(output_dir, "label_distribution.png")
+    plot_path = output_dir / "label_distribution.png"
     plt.savefig(plot_path, dpi=300)
     plt.close()
 
@@ -178,7 +179,7 @@ def main():
     note_lines.append(f"Validation size: {len(val_df)}")
     note_lines.append(f"Test size: {len(test_df)}")
 
-    note_path = os.path.join(output_dir, "data_note.txt")
+    note_path = output_dir / "data_note.txt"
     with open(note_path, "w", encoding="utf-8") as f:
         f.write("\n".join(note_lines))
 

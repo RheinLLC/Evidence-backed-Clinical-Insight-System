@@ -1,0 +1,5 @@
+cluster_id,top_terms,top_entities,short_description
+0,colon; rectum; descending; advanced; patient; mg; insulin; day; valve; transverse,Bleeding; Pain; Fentanyl; Cancer; Disease; Diarrhea; Abdominal; Anemia; Colitis; Ache,Likely gastrointestinal-related cases
+1,pain; disease; chest; edema; patient; breath; hypertension; history; shortness; blood,Pain; Disease; Edema; Fever; Ache; Vomiting; Chest; Nausea; Hypertension; Breath,Likely orthopedic or procedure-related cases
+2,pain; patient; right; infection; bleeding; left; old; year; procedure; fracture,Pain; Bleeding; Ache; Infection; Lidocaine; Disease; Tumor; Stenosis; Failure; Fracture,Likely orthopedic or procedure-related cases
+3,patient; incision; placed; using; marcaine; anesthesia; left; prepped; draped; fashion,Ache; Marcaine; Bleeding; Lidocaine; Pain; Epinephrine; Xylocaine; Hernia; Infection; Tumor,Likely surgery or perioperative cases
