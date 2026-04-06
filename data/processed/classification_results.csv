@@ -1,0 +1,579 @@
+record_id,true_label,predicted_label
+REC_03166,Consult - History and Phy.,Urology
+REC_02518,General Medicine,Consult - History and Phy.
+REC_03019,Consult - History and Phy.,Consult - History and Phy.
+REC_00871,Surgery,SOAP / Chart / Progress Notes
+REC_02662,Gastroenterology,Surgery
+REC_03648,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_02954,Discharge Summary,Discharge Summary
+REC_00846,Surgery,Gastroenterology
+REC_00687,Surgery,Surgery
+REC_01035,Surgery,Orthopedic
+REC_03733,Cardiovascular / Pulmonary,Consult - History and Phy.
+REC_01946,Orthopedic,Orthopedic
+REC_01692,Orthopedic,Orthopedic
+REC_02693,Gastroenterology,Gastroenterology
+REC_02101,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_02581,General Medicine,Consult - History and Phy.
+REC_03144,Consult - History and Phy.,Neurology
+REC_01791,Orthopedic,Radiology
+REC_03638,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_02189,Neurology,SOAP / Chart / Progress Notes
+REC_02962,Discharge Summary,Discharge Summary
+REC_01711,Orthopedic,Orthopedic
+REC_02095,Obstetrics / Gynecology,Surgery
+REC_02999,Consult - History and Phy.,Neurology
+REC_03543,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_02128,Obstetrics / Gynecology,Surgery
+REC_02636,General Medicine,Cardiovascular / Pulmonary
+REC_02776,Gastroenterology,Gastroenterology
+REC_02876,Discharge Summary,Discharge Summary
+REC_03699,Cardiovascular / Pulmonary,Surgery
+REC_00237,Surgery,Orthopedic
+REC_01631,Radiology,Gastroenterology
+REC_00653,Surgery,Orthopedic
+REC_01593,Radiology,Radiology
+REC_01247,SOAP / Chart / Progress Notes,SOAP / Chart / Progress Notes
+REC_01302,SOAP / Chart / Progress Notes,SOAP / Chart / Progress Notes
+REC_02188,Neurology,General Medicine
+REC_02596,General Medicine,Discharge Summary
+REC_03052,Consult - History and Phy.,Consult - History and Phy.
+REC_02588,General Medicine,Discharge Summary
+REC_01608,Radiology,Radiology
+REC_03496,Cardiovascular / Pulmonary,Surgery
+REC_02937,Discharge Summary,Discharge Summary
+REC_00221,Surgery,Orthopedic
+REC_00985,Surgery,Orthopedic
+REC_00637,Surgery,Orthopedic
+REC_01074,Surgery,Cardiovascular / Pulmonary
+REC_00889,Surgery,Obstetrics / Gynecology
+REC_02149,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_00322,Surgery,Urology
+REC_01198,Surgery,Orthopedic
+REC_00903,Surgery,Obstetrics / Gynecology
+REC_00181,Surgery,Urology
+REC_03302,Consult - History and Phy.,General Medicine
+REC_02880,Discharge Summary,Discharge Summary
+REC_01614,Radiology,Neurology
+REC_03284,Consult - History and Phy.,Consult - History and Phy.
+REC_02911,Discharge Summary,General Medicine
+REC_01189,Surgery,Cardiovascular / Pulmonary
+REC_03483,Consult - History and Phy.,Consult - History and Phy.
+REC_01734,Orthopedic,Orthopedic
+REC_01654,Radiology,Obstetrics / Gynecology
+REC_01013,Surgery,Surgery
+REC_03020,Consult - History and Phy.,Gastroenterology
+REC_02468,General Medicine,Consult - History and Phy.
+REC_03687,Cardiovascular / Pulmonary,Radiology
+REC_02873,Discharge Summary,Urology
+REC_00262,Surgery,Surgery
+REC_00859,Surgery,Surgery
+REC_02605,General Medicine,Discharge Summary
+REC_01632,Radiology,Radiology
+REC_03154,Consult - History and Phy.,Consult - History and Phy.
+REC_02376,Neurology,Neurology
+REC_03369,Consult - History and Phy.,General Medicine
+REC_00338,Surgery,Surgery
+REC_02261,Neurology,Neurology
+REC_00798,Surgery,Gastroenterology
+REC_00309,Surgery,Surgery
+REC_01167,Surgery,Orthopedic
+REC_02482,General Medicine,SOAP / Chart / Progress Notes
+REC_01557,Radiology,Radiology
+REC_03395,Consult - History and Phy.,SOAP / Chart / Progress Notes
+REC_00218,Surgery,Surgery
+REC_01357,SOAP / Chart / Progress Notes,General Medicine
+REC_02541,General Medicine,General Medicine
+REC_01158,Surgery,Orthopedic
+REC_01355,SOAP / Chart / Progress Notes,Obstetrics / Gynecology
+REC_00833,Surgery,Orthopedic
+REC_01169,Surgery,Orthopedic
+REC_01655,Radiology,Cardiovascular / Pulmonary
+REC_02113,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_02202,Neurology,SOAP / Chart / Progress Notes
+REC_01341,SOAP / Chart / Progress Notes,General Medicine
+REC_02690,Gastroenterology,Gastroenterology
+REC_01970,Orthopedic,Orthopedic
+REC_01758,Orthopedic,Orthopedic
+REC_01588,Radiology,Radiology
+REC_00175,Surgery,Cardiovascular / Pulmonary
+REC_03128,Consult - History and Phy.,General Medicine
+REC_00025,Urology,Urology
+REC_01990,Orthopedic,Orthopedic
+REC_00108,Urology,General Medicine
+REC_01805,Orthopedic,Radiology
+REC_02507,General Medicine,Consult - History and Phy.
+REC_00511,Surgery,Surgery
+REC_00475,Surgery,Orthopedic
+REC_02838,Gastroenterology,Gastroenterology
+REC_02909,Discharge Summary,Discharge Summary
+REC_03795,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_02794,Gastroenterology,Consult - History and Phy.
+REC_02271,Neurology,Neurology
+REC_00357,Surgery,Surgery
+REC_01454,Radiology,Surgery
+REC_00784,Surgery,Orthopedic
+REC_01546,Radiology,Orthopedic
+REC_02131,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_01082,Surgery,SOAP / Chart / Progress Notes
+REC_00606,Surgery,Urology
+REC_03447,Consult - History and Phy.,SOAP / Chart / Progress Notes
+REC_03682,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_02049,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_03023,Consult - History and Phy.,General Medicine
+REC_00363,Surgery,Surgery
+REC_03072,Consult - History and Phy.,Consult - History and Phy.
+REC_00939,Surgery,Surgery
+REC_02359,Neurology,Surgery
+REC_01729,Orthopedic,Orthopedic
+REC_01364,SOAP / Chart / Progress Notes,SOAP / Chart / Progress Notes
+REC_01469,Radiology,Neurology
+REC_03325,Consult - History and Phy.,Consult - History and Phy.
+REC_01097,Surgery,Cardiovascular / Pulmonary
+REC_03213,Consult - History and Phy.,Consult - History and Phy.
+REC_00189,Surgery,Obstetrics / Gynecology
+REC_02380,Neurology,Radiology
+REC_00366,Surgery,Orthopedic
+REC_00515,Surgery,Cardiovascular / Pulmonary
+REC_00269,Surgery,Cardiovascular / Pulmonary
+REC_00417,Surgery,Surgery
+REC_02119,Obstetrics / Gynecology,Discharge Summary
+REC_02326,Neurology,Neurology
+REC_01104,Surgery,Surgery
+REC_03514,Cardiovascular / Pulmonary,Surgery
+REC_01551,Radiology,Cardiovascular / Pulmonary
+REC_00021,Urology,Surgery
+REC_03027,Consult - History and Phy.,Consult - History and Phy.
+REC_03745,Cardiovascular / Pulmonary,Radiology
+REC_01744,Orthopedic,SOAP / Chart / Progress Notes
+REC_00794,Surgery,Gastroenterology
+REC_00095,Urology,Urology
+REC_02356,Neurology,Neurology
+REC_02367,Neurology,Neurology
+REC_03741,Cardiovascular / Pulmonary,Surgery
+REC_03644,Cardiovascular / Pulmonary,Consult - History and Phy.
+REC_00569,Surgery,Obstetrics / Gynecology
+REC_02578,General Medicine,General Medicine
+REC_03214,Consult - History and Phy.,Consult - History and Phy.
+REC_01280,SOAP / Chart / Progress Notes,SOAP / Chart / Progress Notes
+REC_03540,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_00840,Surgery,Gastroenterology
+REC_00270,Surgery,Orthopedic
+REC_01079,Surgery,Orthopedic
+REC_01558,Radiology,Neurology
+REC_00303,Surgery,Surgery
+REC_01554,Radiology,Neurology
+REC_00983,Surgery,Orthopedic
+REC_03400,Consult - History and Phy.,SOAP / Chart / Progress Notes
+REC_00505,Surgery,Surgery
+REC_03725,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_00005,Cardiovascular / Pulmonary,Radiology
+REC_01715,Orthopedic,Orthopedic
+REC_00210,Surgery,Obstetrics / Gynecology
+REC_00455,Surgery,Surgery
+REC_01799,Orthopedic,Radiology
+REC_01566,Radiology,Neurology
+REC_01048,Surgery,Cardiovascular / Pulmonary
+REC_00791,Surgery,Surgery
+REC_01345,SOAP / Chart / Progress Notes,Urology
+REC_01914,Orthopedic,Radiology
+REC_00538,Surgery,Surgery
+REC_02183,Neurology,Surgery
+REC_02041,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_03406,Consult - History and Phy.,Cardiovascular / Pulmonary
+REC_00913,Surgery,Surgery
+REC_00970,Surgery,Gastroenterology
+REC_01073,Surgery,Cardiovascular / Pulmonary
+REC_03146,Consult - History and Phy.,Neurology
+REC_03415,Consult - History and Phy.,SOAP / Chart / Progress Notes
+REC_03129,Consult - History and Phy.,General Medicine
+REC_01145,Surgery,Surgery
+REC_01826,Orthopedic,Orthopedic
+REC_02700,Gastroenterology,Gastroenterology
+REC_01780,Orthopedic,Neurology
+REC_03834,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_01645,Radiology,Radiology
+REC_01793,Orthopedic,Radiology
+REC_01207,Surgery,Orthopedic
+REC_02210,Neurology,Consult - History and Phy.
+REC_02660,Gastroenterology,Surgery
+REC_01881,Orthopedic,Orthopedic
+REC_02429,General Medicine,Consult - History and Phy.
+REC_02042,Obstetrics / Gynecology,SOAP / Chart / Progress Notes
+REC_03094,Consult - History and Phy.,Orthopedic
+REC_00989,Surgery,Surgery
+REC_01343,SOAP / Chart / Progress Notes,General Medicine
+REC_00298,Surgery,Orthopedic
+REC_03839,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_01038,Surgery,Orthopedic
+REC_01490,Radiology,Orthopedic
+REC_00107,Urology,Urology
+REC_03375,Consult - History and Phy.,Consult - History and Phy.
+REC_03290,Consult - History and Phy.,SOAP / Chart / Progress Notes
+REC_03752,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_02885,Discharge Summary,Discharge Summary
+REC_00381,Surgery,Urology
+REC_02052,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_03780,Cardiovascular / Pulmonary,Consult - History and Phy.
+REC_02155,Obstetrics / Gynecology,Gastroenterology
+REC_03070,Consult - History and Phy.,Cardiovascular / Pulmonary
+REC_00307,Surgery,Obstetrics / Gynecology
+REC_01575,Radiology,Cardiovascular / Pulmonary
+REC_03222,Consult - History and Phy.,Urology
+REC_03024,Consult - History and Phy.,General Medicine
+REC_02504,General Medicine,SOAP / Chart / Progress Notes
+REC_00865,Surgery,Obstetrics / Gynecology
+REC_00869,Surgery,Obstetrics / Gynecology
+REC_01887,Orthopedic,Consult - History and Phy.
+REC_03788,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_02803,Gastroenterology,General Medicine
+REC_02297,Neurology,Consult - History and Phy.
+REC_02816,Gastroenterology,Gastroenterology
+REC_01824,Orthopedic,Orthopedic
+REC_01119,Surgery,Surgery
+REC_03076,Consult - History and Phy.,Consult - History and Phy.
+REC_00800,Surgery,Gastroenterology
+REC_02508,General Medicine,General Medicine
+REC_01025,Surgery,Surgery
+REC_00998,Surgery,Cardiovascular / Pulmonary
+REC_02640,General Medicine,Cardiovascular / Pulmonary
+REC_00651,Surgery,Surgery
+REC_00886,Surgery,Orthopedic
+REC_03230,Consult - History and Phy.,Orthopedic
+REC_03534,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_03755,Cardiovascular / Pulmonary,Surgery
+REC_02969,Discharge Summary,Discharge Summary
+REC_00602,Surgery,Obstetrics / Gynecology
+REC_03530,Cardiovascular / Pulmonary,Surgery
+REC_01045,Surgery,Orthopedic
+REC_01920,Orthopedic,SOAP / Chart / Progress Notes
+REC_03653,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_02545,General Medicine,Consult - History and Phy.
+REC_01103,Surgery,Cardiovascular / Pulmonary
+REC_03199,Consult - History and Phy.,Consult - History and Phy.
+REC_00434,Surgery,Surgery
+REC_02509,General Medicine,General Medicine
+REC_03126,Consult - History and Phy.,General Medicine
+REC_03156,Consult - History and Phy.,Neurology
+REC_02314,Neurology,Neurology
+REC_02883,Discharge Summary,Discharge Summary
+REC_03569,Cardiovascular / Pulmonary,Discharge Summary
+REC_01412,Radiology,Obstetrics / Gynecology
+REC_03326,Consult - History and Phy.,General Medicine
+REC_02536,General Medicine,Consult - History and Phy.
+REC_01333,SOAP / Chart / Progress Notes,General Medicine
+REC_02526,General Medicine,General Medicine
+REC_01911,Orthopedic,Radiology
+REC_00966,Surgery,Gastroenterology
+REC_03570,Cardiovascular / Pulmonary,Surgery
+REC_00049,Urology,Consult - History and Phy.
+REC_01847,Orthopedic,Orthopedic
+REC_03149,Consult - History and Phy.,Neurology
+REC_00642,Surgery,Orthopedic
+REC_02332,Neurology,Radiology
+REC_01925,Orthopedic,SOAP / Chart / Progress Notes
+REC_02850,Gastroenterology,SOAP / Chart / Progress Notes
+REC_00842,Surgery,Radiology
+REC_02440,General Medicine,General Medicine
+REC_00924,Surgery,Neurology
+REC_00113,Urology,Radiology
+REC_02466,General Medicine,Consult - History and Phy.
+REC_02654,General Medicine,Consult - History and Phy.
+REC_03436,Consult - History and Phy.,General Medicine
+REC_01968,Orthopedic,Orthopedic
+REC_02413,General Medicine,Consult - History and Phy.
+REC_00932,Surgery,Surgery
+REC_02744,Gastroenterology,Gastroenterology
+REC_00823,Surgery,Orthopedic
+REC_00587,Surgery,Urology
+REC_01017,Surgery,Orthopedic
+REC_02665,Gastroenterology,Consult - History and Phy.
+REC_00916,Surgery,Urology
+REC_01098,Surgery,Cardiovascular / Pulmonary
+REC_02304,Neurology,Radiology
+REC_02576,General Medicine,General Medicine
+REC_00567,Surgery,Obstetrics / Gynecology
+REC_00755,Surgery,Cardiovascular / Pulmonary
+REC_01075,Surgery,Cardiovascular / Pulmonary
+REC_01885,Orthopedic,Orthopedic
+REC_00811,Surgery,Gastroenterology
+REC_00184,Surgery,Surgery
+REC_01648,Radiology,Cardiovascular / Pulmonary
+REC_01568,Radiology,Neurology
+REC_00094,Urology,Urology
+REC_03422,Consult - History and Phy.,Neurology
+REC_01187,Surgery,Cardiovascular / Pulmonary
+REC_02748,Gastroenterology,Gastroenterology
+REC_03738,Cardiovascular / Pulmonary,Surgery
+REC_03266,Consult - History and Phy.,General Medicine
+REC_01184,Surgery,Gastroenterology
+REC_02716,Gastroenterology,Consult - History and Phy.
+REC_00283,Surgery,Surgery
+REC_02755,Gastroenterology,Consult - History and Phy.
+REC_03062,Consult - History and Phy.,Consult - History and Phy.
+REC_03317,Consult - History and Phy.,Consult - History and Phy.
+REC_01683,Orthopedic,Surgery
+REC_00851,Surgery,Surgery
+REC_01688,Orthopedic,Orthopedic
+REC_03799,Cardiovascular / Pulmonary,SOAP / Chart / Progress Notes
+REC_02805,Gastroenterology,SOAP / Chart / Progress Notes
+REC_00727,Surgery,Cardiovascular / Pulmonary
+REC_02143,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_02974,Discharge Summary,Cardiovascular / Pulmonary
+REC_00132,Urology,Urology
+REC_02145,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_00738,Surgery,Surgery
+REC_00978,Surgery,Orthopedic
+REC_02046,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_03215,Consult - History and Phy.,Consult - History and Phy.
+REC_02479,General Medicine,Cardiovascular / Pulmonary
+REC_03669,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_01922,Orthopedic,Radiology
+REC_00102,Urology,Urology
+REC_00182,Surgery,Surgery
+REC_02847,Gastroenterology,Surgery
+REC_02087,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_02187,Neurology,Surgery
+REC_00157,Urology,Urology
+REC_01366,SOAP / Chart / Progress Notes,Urology
+REC_03584,Cardiovascular / Pulmonary,Surgery
+REC_02908,Discharge Summary,Discharge Summary
+REC_01852,Orthopedic,Orthopedic
+REC_00771,Surgery,Cardiovascular / Pulmonary
+REC_00019,Urology,Consult - History and Phy.
+REC_00299,Surgery,Obstetrics / Gynecology
+REC_02276,Neurology,Consult - History and Phy.
+REC_01266,SOAP / Chart / Progress Notes,Neurology
+REC_00822,Surgery,Surgery
+REC_01736,Orthopedic,Consult - History and Phy.
+REC_00395,Surgery,Surgery
+REC_00243,Surgery,Obstetrics / Gynecology
+REC_01796,Orthopedic,Radiology
+REC_00742,Surgery,Gastroenterology
+REC_00310,Surgery,Orthopedic
+REC_01474,Radiology,Neurology
+REC_01174,Surgery,Orthopedic
+REC_01676,Orthopedic,Orthopedic
+REC_01039,Surgery,Orthopedic
+REC_02191,Neurology,Cardiovascular / Pulmonary
+REC_03103,Consult - History and Phy.,Obstetrics / Gynecology
+REC_03522,Cardiovascular / Pulmonary,Surgery
+REC_01678,Orthopedic,Orthopedic
+REC_01607,Radiology,Radiology
+REC_00231,Surgery,Orthopedic
+REC_00050,Urology,Surgery
+REC_03612,Cardiovascular / Pulmonary,Surgery
+REC_03751,Cardiovascular / Pulmonary,Radiology
+REC_02306,Neurology,Radiology
+REC_00111,Urology,Urology
+REC_02154,Obstetrics / Gynecology,Consult - History and Phy.
+REC_03348,Consult - History and Phy.,SOAP / Chart / Progress Notes
+REC_02334,Neurology,Radiology
+REC_02562,General Medicine,Consult - History and Phy.
+REC_01391,SOAP / Chart / Progress Notes,Cardiovascular / Pulmonary
+REC_00545,Surgery,Obstetrics / Gynecology
+REC_01974,Orthopedic,Orthopedic
+REC_00816,Surgery,Gastroenterology
+REC_01494,Radiology,Radiology
+REC_03139,Consult - History and Phy.,Cardiovascular / Pulmonary
+REC_02373,Neurology,SOAP / Chart / Progress Notes
+REC_01465,Radiology,Neurology
+REC_00173,Surgery,Surgery
+REC_02377,Neurology,SOAP / Chart / Progress Notes
+REC_02996,Consult - History and Phy.,General Medicine
+REC_03301,Consult - History and Phy.,SOAP / Chart / Progress Notes
+REC_02841,Gastroenterology,Consult - History and Phy.
+REC_03616,Cardiovascular / Pulmonary,Consult - History and Phy.
+REC_02756,Gastroenterology,Surgery
+REC_03790,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_00117,Urology,Urology
+REC_01569,Radiology,Radiology
+REC_02614,General Medicine,General Medicine
+REC_03610,Cardiovascular / Pulmonary,Radiology
+REC_01945,Orthopedic,Orthopedic
+REC_03546,Cardiovascular / Pulmonary,SOAP / Chart / Progress Notes
+REC_02771,Gastroenterology,Gastroenterology
+REC_02491,General Medicine,SOAP / Chart / Progress Notes
+REC_01437,Radiology,Radiology
+REC_00525,Surgery,Surgery
+REC_01572,Radiology,Radiology
+REC_01308,SOAP / Chart / Progress Notes,SOAP / Chart / Progress Notes
+REC_00772,Surgery,Radiology
+REC_02449,General Medicine,General Medicine
+REC_02977,Consult - History and Phy.,Consult - History and Phy.
+REC_03718,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_00382,Surgery,Surgery
+REC_00757,Surgery,Orthopedic
+REC_03306,Consult - History and Phy.,Gastroenterology
+REC_03034,Consult - History and Phy.,Consult - History and Phy.
+REC_01455,Radiology,Neurology
+REC_01991,Orthopedic,Orthopedic
+REC_01548,Radiology,Obstetrics / Gynecology
+REC_03817,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_02714,Gastroenterology,Radiology
+REC_02445,General Medicine,General Medicine
+REC_01037,Surgery,Orthopedic
+REC_03194,Consult - History and Phy.,Cardiovascular / Pulmonary
+REC_01882,Orthopedic,Consult - History and Phy.
+REC_01681,Orthopedic,Orthopedic
+REC_01761,Orthopedic,Orthopedic
+REC_02529,General Medicine,General Medicine
+REC_00249,Surgery,Surgery
+REC_03198,Consult - History and Phy.,Orthopedic
+REC_02234,Neurology,Radiology
+REC_00593,Surgery,Obstetrics / Gynecology
+REC_02656,Gastroenterology,Gastroenterology
+REC_01660,Radiology,Gastroenterology
+REC_02246,Neurology,Orthopedic
+REC_03777,Cardiovascular / Pulmonary,Consult - History and Phy.
+REC_02904,Discharge Summary,Discharge Summary
+REC_00808,Surgery,Gastroenterology
+REC_02315,Neurology,Radiology
+REC_01052,Surgery,Cardiovascular / Pulmonary
+REC_03694,Cardiovascular / Pulmonary,Radiology
+REC_01088,Surgery,Surgery
+REC_01058,Surgery,Cardiovascular / Pulmonary
+REC_03123,Consult - History and Phy.,General Medicine
+REC_03573,Cardiovascular / Pulmonary,Discharge Summary
+REC_03842,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_01605,Radiology,Radiology
+REC_02451,General Medicine,General Medicine
+REC_01912,Orthopedic,Radiology
+REC_03238,Consult - History and Phy.,Neurology
+REC_03797,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_01062,Surgery,Cardiovascular / Pulmonary
+REC_00324,Surgery,Urology
+REC_00146,Urology,Urology
+REC_01902,Orthopedic,Orthopedic
+REC_00239,Surgery,Orthopedic
+REC_01356,SOAP / Chart / Progress Notes,Urology
+REC_01107,Surgery,Cardiovascular / Pulmonary
+REC_00285,Surgery,Obstetrics / Gynecology
+REC_03620,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_01319,SOAP / Chart / Progress Notes,SOAP / Chart / Progress Notes
+REC_02299,Neurology,Radiology
+REC_03346,Consult - History and Phy.,SOAP / Chart / Progress Notes
+REC_01093,Surgery,Cardiovascular / Pulmonary
+REC_00032,Urology,Urology
+REC_02002,Orthopedic,Surgery
+REC_01543,Radiology,Radiology
+REC_02691,Gastroenterology,Gastroenterology
+REC_01733,Orthopedic,Radiology
+REC_02035,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_02551,General Medicine,General Medicine
+REC_01365,SOAP / Chart / Progress Notes,SOAP / Chart / Progress Notes
+REC_03672,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_00523,Surgery,Urology
+REC_02316,Neurology,Radiology
+REC_00349,Surgery,Obstetrics / Gynecology
+REC_03161,Consult - History and Phy.,Consult - History and Phy.
+REC_02027,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_03761,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_01303,SOAP / Chart / Progress Notes,General Medicine
+REC_03226,Consult - History and Phy.,Consult - History and Phy.
+REC_01147,Surgery,Surgery
+REC_02004,Orthopedic,Surgery
+REC_00081,Urology,Surgery
+REC_01472,Radiology,Neurology
+REC_01942,Orthopedic,Orthopedic
+REC_00941,Surgery,Gastroenterology
+REC_01269,SOAP / Chart / Progress Notes,SOAP / Chart / Progress Notes
+REC_03322,Consult - History and Phy.,Radiology
+REC_02888,Discharge Summary,Discharge Summary
+REC_03297,Consult - History and Phy.,General Medicine
+REC_02723,Gastroenterology,Consult - History and Phy.
+REC_03168,Consult - History and Phy.,Neurology
+REC_01431,Radiology,Cardiovascular / Pulmonary
+REC_00517,Surgery,Surgery
+REC_02472,General Medicine,Discharge Summary
+REC_03312,Consult - History and Phy.,Consult - History and Phy.
+REC_00825,Surgery,Cardiovascular / Pulmonary
+REC_02683,Gastroenterology,General Medicine
+REC_03256,Consult - History and Phy.,General Medicine
+REC_03233,Consult - History and Phy.,Consult - History and Phy.
+REC_00584,Surgery,Surgery
+REC_00292,Surgery,Obstetrics / Gynecology
+REC_00724,Surgery,Cardiovascular / Pulmonary
+REC_02366,Neurology,Surgery
+REC_01851,Orthopedic,Orthopedic
+REC_02352,Neurology,Radiology
+REC_03502,Cardiovascular / Pulmonary,Radiology
+REC_01552,Radiology,Cardiovascular / Pulmonary
+REC_02212,Neurology,Neurology
+REC_00743,Surgery,Surgery
+REC_00397,Surgery,Surgery
+REC_02560,General Medicine,Consult - History and Phy.
+REC_02814,Gastroenterology,Gastroenterology
+REC_02912,Discharge Summary,Discharge Summary
+REC_03333,Consult - History and Phy.,Cardiovascular / Pulmonary
+REC_03041,Consult - History and Phy.,Cardiovascular / Pulmonary
+REC_01897,Orthopedic,Discharge Summary
+REC_03264,Consult - History and Phy.,Discharge Summary
+REC_00709,Surgery,Orthopedic
+REC_02854,Gastroenterology,Gastroenterology
+REC_03562,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_01066,Surgery,Cardiovascular / Pulmonary
+REC_03121,Consult - History and Phy.,General Medicine
+REC_02646,General Medicine,Consult - History and Phy.
+REC_01384,SOAP / Chart / Progress Notes,Discharge Summary
+REC_00630,Surgery,Orthopedic
+REC_03134,Consult - History and Phy.,General Medicine
+REC_01756,Orthopedic,SOAP / Chart / Progress Notes
+REC_03696,Cardiovascular / Pulmonary,Radiology
+REC_02864,Gastroenterology,Urology
+REC_00474,Surgery,Urology
+REC_01414,Radiology,Obstetrics / Gynecology
+REC_01523,Radiology,Neurology
+REC_01923,Orthopedic,Orthopedic
+REC_02165,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_03130,Consult - History and Phy.,General Medicine
+REC_03096,Consult - History and Phy.,SOAP / Chart / Progress Notes
+REC_01029,Surgery,Orthopedic
+REC_01416,Radiology,Radiology
+REC_01370,SOAP / Chart / Progress Notes,SOAP / Chart / Progress Notes
+REC_03407,Consult - History and Phy.,Consult - History and Phy.
+REC_00421,Surgery,Surgery
+REC_00799,Surgery,Gastroenterology
+REC_02344,Neurology,Radiology
+REC_02166,Obstetrics / Gynecology,Surgery
+REC_01061,Surgery,Cardiovascular / Pulmonary
+REC_02569,General Medicine,General Medicine
+REC_02715,Gastroenterology,Surgery
+REC_00055,Urology,Consult - History and Phy.
+REC_01320,SOAP / Chart / Progress Notes,General Medicine
+REC_00690,Surgery,Surgery
+REC_01630,Radiology,Gastroenterology
+REC_00033,Urology,Urology
+REC_02626,General Medicine,SOAP / Chart / Progress Notes
+REC_03846,Cardiovascular / Pulmonary,Consult - History and Phy.
+REC_00211,Surgery,Surgery
+REC_01774,Orthopedic,Surgery
+REC_00542,Surgery,Surgery
+REC_03247,Consult - History and Phy.,General Medicine
+REC_00090,Urology,Urology
+REC_02461,General Medicine,General Medicine
+REC_00734,Surgery,Orthopedic
+REC_00017,Urology,Urology
+REC_00360,Surgery,Obstetrics / Gynecology
+REC_02745,Gastroenterology,Gastroenterology
+REC_02836,Gastroenterology,Gastroenterology
+REC_00323,Surgery,Surgery
+REC_02139,Obstetrics / Gynecology,Obstetrics / Gynecology
+REC_00466,Surgery,Orthopedic
+REC_01352,SOAP / Chart / Progress Notes,Orthopedic
+REC_00857,Surgery,Orthopedic
+REC_00160,Urology,Urology
+REC_01785,Orthopedic,Radiology
+REC_03503,Cardiovascular / Pulmonary,Surgery
+REC_01223,Surgery,Surgery
+REC_01339,SOAP / Chart / Progress Notes,General Medicine
+REC_00680,Surgery,Surgery
+REC_00661,Surgery,Urology
+REC_03553,Cardiovascular / Pulmonary,SOAP / Chart / Progress Notes
+REC_03196,Consult - History and Phy.,Consult - History and Phy.
+REC_03361,Consult - History and Phy.,Consult - History and Phy.
+REC_03392,Consult - History and Phy.,Consult - History and Phy.
+REC_02664,Gastroenterology,SOAP / Chart / Progress Notes
+REC_02163,Obstetrics / Gynecology,Surgery
+REC_03808,Cardiovascular / Pulmonary,Cardiovascular / Pulmonary
+REC_00183,Surgery,Surgery
