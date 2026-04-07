@@ -10,7 +10,6 @@ Evidence-Backed Clinical Insight Assistant built with Streamlit. The app combine
 
 ## Project Structure
 
-- `main.py`: Streamlit Community Cloud entrypoint
 - `src/app/app.py`: Streamlit UI
 - `src/pipeline/demo_pipeline.py`: unified inference pipeline
 - `src/classification/train_classifier.py`: classification training script
@@ -71,5 +70,6 @@ If some model or data assets are missing, parts of the app will degrade graceful
 
 ## Notes
 
-- `spacy` and `scispacy` are not required for deployment. If they are unavailable, the NER module falls back to a rule-based extractor.
+- `requirements.txt` includes `scispacy` and the `en_core_sci_sm` model package used by the NER module.
+- If the scispaCy model still fails to load at runtime, the NER module falls back to a rule-based extractor.
 - Large model or data files may affect Streamlit Community Cloud startup time and repository size limits.

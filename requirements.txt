@@ -1,6 +1,9 @@
-streamlit
-pandas
-numpy
-scikit-learn
-matplotlib
-joblib
+streamlit==1.56.0
+pandas==2.3.3
+numpy==1.26.4
+scikit-learn==1.8.0
+matplotlib==3.10.7
+joblib==1.5.3
+spacy==3.7.5
+scispacy==0.5.4
+https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.4/en_core_sci_sm-0.5.4.tar.gz
