@@ -37,7 +37,7 @@ pip install -r requirements.txt
 3. Start the app:
 
 ```bash
-streamlit run main.py
+streamlit run src/app/app.py
 ```
 
 ## Streamlit Community Cloud Deployment
@@ -46,10 +46,9 @@ Use these settings:
 
 - Repository: this repo
 - Branch: your deploy branch
-- Main file path: `main.py`
+- Main file path: `src/app/app.py`
 
-The app is configured so Streamlit can launch from the repository root without needing a custom module path.
-The repository also includes `.streamlit/config.toml` for default theme and server settings, so no extra Streamlit config is required for a standard deployment.
+The app is configured so Streamlit can launch directly from `src/app/app.py`.
 
 ## Required Runtime Assets
 
