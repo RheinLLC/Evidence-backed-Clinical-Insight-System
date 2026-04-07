@@ -8,7 +8,12 @@ from sklearn.cluster import MiniBatchKMeans
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import silhouette_score
 
-from src.config import CLUSTERING_MODELS_DIR, INTERIM_DATA_DIR, PROCESSED_DATA_DIR
+from src.config import (
+    CLUSTERING_MODELS_DIR,
+    CLUSTER_VECTORIZER_PATH,
+    INTERIM_DATA_DIR,
+    PROCESSED_DATA_DIR,
+)
 
 
 CLEANED_PATH = INTERIM_DATA_DIR / "cleaned_dataset.csv"
@@ -18,7 +23,6 @@ CLUSTER_RESULTS_PATH = PROCESSED_DATA_DIR / "cluster_results.csv"
 CLUSTER_INTERPRETATION_PATH = PROCESSED_DATA_DIR / "cluster_interpretation.csv"
 SILHOUETTE_SCORES_PATH = PROCESSED_DATA_DIR / "silhouette_scores.csv"
 CLUSTER_MODEL_PATH = CLUSTERING_MODELS_DIR / "cluster_model.pkl"
-CLUSTER_VECTORIZER_PATH = CLUSTERING_MODELS_DIR / "cluster_vectorizer.pkl"
 INTEGRATION_BASE_PATH = CLUSTERING_MODELS_DIR / "integration_base.pkl"
 
 

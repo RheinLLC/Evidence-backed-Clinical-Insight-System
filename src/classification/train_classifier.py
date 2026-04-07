@@ -17,6 +17,13 @@ from sklearn.metrics import (
 )
 from sklearn.pipeline import Pipeline
 
+from src.config import (
+    CLASSIFICATION_MODELS_DIR,
+    CLASSIFICATION_VECTORIZER_PATH,
+    INTERIM_DATA_DIR,
+    PROCESSED_DATA_DIR,
+)
+
 
 def clean_text(text):
     if pd.isna(text):
@@ -27,28 +34,28 @@ def clean_text(text):
 
 
 def load_data(project_root):
-    train_path = os.path.join(project_root, "data", "interim", "train.csv")
-    val_path = os.path.join(project_root, "data", "interim", "val.csv")
-    test_path = os.path.join(project_root, "data", "interim", "test.csv")
+    train_path = INTERIM_DATA_DIR / "train.csv"
+    val_path = INTERIM_DATA_DIR / "val.csv"
+    test_path = INTERIM_DATA_DIR / "test.csv"
 
-    ner_path_1 = os.path.join(project_root, "data", "processed", "ner results.csv")
-    ner_path_2 = os.path.join(project_root, "data", "processed", "ner_results.csv")
+    ner_path_1 = PROCESSED_DATA_DIR / "ner results.csv"
+    ner_path_2 = PROCESSED_DATA_DIR / "ner_results.csv"
 
     print("Checking input files...", flush=True)
     print(f"train_path = {train_path}", flush=True)
     print(f"val_path   = {val_path}", flush=True)
     print(f"test_path  = {test_path}", flush=True)
 
-    if not os.path.exists(train_path):
+    if not train_path.exists():
         raise FileNotFoundError(f"train.csv not found: {train_path}")
-    if not os.path.exists(val_path):
+    if not val_path.exists():
         raise FileNotFoundError(f"val.csv not found: {val_path}")
-    if not os.path.exists(test_path):
+    if not test_path.exists():
         raise FileNotFoundError(f"test.csv not found: {test_path}")
 
-    if os.path.exists(ner_path_1):
+    if ner_path_1.exists():
         ner_path = ner_path_1
-    elif os.path.exists(ner_path_2):
+    elif ner_path_2.exists():
         ner_path = ner_path_2
     else:
         raise FileNotFoundError(
@@ -228,11 +235,13 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.abspath(os.path.join(script_dir, "..", ".."))
 
-    processed_dir = os.path.join(project_root, "data", "processed")
-    model_dir = os.path.join(project_root, "models", "classification")
+    processed_dir = PROCESSED_DATA_DIR
+    model_dir = CLASSIFICATION_MODELS_DIR
+    vectorizer_path = CLASSIFICATION_VECTORIZER_PATH
 
     os.makedirs(processed_dir, exist_ok=True)
     os.makedirs(model_dir, exist_ok=True)
+    os.makedirs(vectorizer_path.parent, exist_ok=True)
 
     print("STEP 2: paths ready", flush=True)
     print(f"project_root = {project_root}", flush=True)
@@ -305,10 +314,10 @@ def main():
         "true_label": test_df["medical_specialty"],
         "predicted_label": test_pred
     })
-    results_df.to_csv(os.path.join(processed_dir, "classification_results.csv"), index=False)
+    results_df.to_csv(processed_dir / "classification_results.csv", index=False)
 
     print("STEP 18: save comparison csv", flush=True)
-    all_results_df.to_csv(os.path.join(processed_dir, "classification_model_comparison.csv"), index=False)
+    all_results_df.to_csv(processed_dir / "classification_model_comparison.csv", index=False)
 
     print("STEP 19: save metrics md", flush=True)
     report_text = []
@@ -334,7 +343,7 @@ def main():
     ))
     report_text.append("```")
 
-    with open(os.path.join(processed_dir, "classification_metrics.md"), "w", encoding="utf-8") as f:
+    with open(processed_dir / "classification_metrics.md", "w", encoding="utf-8") as f:
         f.write("\n".join(report_text))
 
     print("STEP 20: save confusion matrix", flush=True)
@@ -342,15 +351,15 @@ def main():
         test_df["medical_specialty"],
         test_pred,
         labels,
-        os.path.join(processed_dir, "confusion_matrix.png")
+        processed_dir / "confusion_matrix.png"
     )
 
     print("STEP 21: save model", flush=True)
-    joblib.dump(best_pipeline, os.path.join(model_dir, "best_classifier.pkl"))
+    joblib.dump(best_pipeline, model_dir / "best_classifier.pkl")
 
     print("STEP 22: save vectorizer", flush=True)
     tfidf_vectorizer = best_pipeline.named_steps["tfidf"]
-    joblib.dump(tfidf_vectorizer, os.path.join(model_dir, "vectorizer.pkl"))
+    joblib.dump(tfidf_vectorizer, vectorizer_path)
 
     print("STEP 23: finished", flush=True)
     print("Outputs saved:", flush=True)
@@ -359,7 +368,7 @@ def main():
     print("- data/processed/classification_metrics.md", flush=True)
     print("- data/processed/confusion_matrix.png", flush=True)
     print("- models/classification/best_classifier.pkl", flush=True)
-    print("- models/classification/vectorizer.pkl", flush=True)
+    print("- models/vectorizers/classification_vectorizer.pkl", flush=True)
 
 
 if __name__ == "__main__":
