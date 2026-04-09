@@ -26,6 +26,7 @@ CLUSTER_MODEL_PATH = CLUSTERING_MODELS_DIR / "cluster_model.pkl"
 INTEGRATION_BASE_PATH = CLUSTERING_MODELS_DIR / "integration_base.pkl"
 
 
+# Parse list-like CSV strings back into Python lists for entity aggregation.
 def parse_list_cell(value) -> List[str]:
     """Convert a CSV cell like '["Pain", "Fever"]' to a Python list."""
     if pd.isna(value):
@@ -42,6 +43,7 @@ def parse_list_cell(value) -> List[str]:
     return [text]
 
 
+# Merge cleaned notes, extracted entities, and summaries into one clustering table.
 def build_integration_base() -> pd.DataFrame:
     cleaned = pd.read_csv(CLEANED_PATH)
     ner = pd.read_csv(NER_PATH)
@@ -84,6 +86,7 @@ def build_integration_base() -> pd.DataFrame:
     return base
 
 
+# Search across candidate cluster counts and keep the model with the best silhouette score.
 def run_kmeans_search(texts: pd.Series, k_values: List[int]) -> Tuple[TfidfVectorizer, pd.DataFrame, MiniBatchKMeans]:
     vectorizer = TfidfVectorizer(
         stop_words="english",
@@ -110,6 +113,7 @@ def run_kmeans_search(texts: pd.Series, k_values: List[int]) -> Tuple[TfidfVecto
     return vectorizer, scores_df, best_model
 
 
+# Extract representative TF-IDF terms from each learned cluster centroid.
 def get_top_terms_per_cluster(model: MiniBatchKMeans, vectorizer: TfidfVectorizer, top_n: int = 12):
     terms = np.array(vectorizer.get_feature_names_out())
     results = []
@@ -123,6 +127,7 @@ def get_top_terms_per_cluster(model: MiniBatchKMeans, vectorizer: TfidfVectorize
     return pd.DataFrame(results)
 
 
+# Summarize the most frequent entities appearing inside one cluster.
 def get_top_entities_for_cluster(df: pd.DataFrame, cluster_id: int, top_n: int = 8) -> str:
     subset = df[df["cluster_id"] == cluster_id]
     all_entities = []
@@ -137,6 +142,7 @@ def get_top_entities_for_cluster(df: pd.DataFrame, cluster_id: int, top_n: int =
     return "; ".join(vc.index.tolist())
 
 
+# Map cluster keywords to a short clinical interpretation for the UI layer.
 def describe_cluster(top_terms: str, top_entities: str) -> str:
     text = f"{top_terms} {top_entities}".lower()
     if any(w in text for w in ["stomach", "colon", "abdomen", "bowel", "gastro", "liver"]):
@@ -153,16 +159,20 @@ def describe_cluster(top_terms: str, top_entities: str) -> str:
 
 
 def main():
+    # Prepare output directories and assemble the integrated feature dataset.
     PROCESSED_DATA_DIR.mkdir(parents=True, exist_ok=True)
     CLUSTERING_MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
+    # Train the clustering model and assign every record to its best-fit cluster.
     df = build_integration_base()
     vectorizer, scores_df, model = run_kmeans_search(df["hybrid_text"], [4, 5, 6])
     df["cluster_id"] = model.predict(vectorizer.transform(df["hybrid_text"]))
 
+    # Save record-level cluster assignments for downstream integration.
     cluster_results = df[["record_id", "cluster_id"]].copy()
     cluster_results.to_csv(CLUSTER_RESULTS_PATH, index=False)
 
+    # Build human-readable cluster interpretations from terms and entity frequencies.
     top_terms_df = get_top_terms_per_cluster(model, vectorizer, top_n=12)
     interp_rows = []
     for cid in sorted(df["cluster_id"].unique()):
@@ -177,6 +187,7 @@ def main():
     interp_df = pd.DataFrame(interp_rows)
     interp_df.to_csv(CLUSTER_INTERPRETATION_PATH, index=False)
 
+    # Persist evaluation tables and serialized artifacts used by the demo pipeline.
     scores_df.to_csv(SILHOUETTE_SCORES_PATH, index=False)
     joblib.dump(model, CLUSTER_MODEL_PATH)
     joblib.dump(vectorizer, CLUSTER_VECTORIZER_PATH)

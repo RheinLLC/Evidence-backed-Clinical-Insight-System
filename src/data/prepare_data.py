@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from src.config import INTERIM_DATA_DIR, RAW_DATA_DIR
 
 
+# Normalize free-text fields before downstream modeling.
 def clean_text(text: str) -> str:
     """
     Clean transcription text by normalizing whitespace.
@@ -18,6 +19,7 @@ def clean_text(text: str) -> str:
     return text
 
 
+# Support record filtering by note length.
 def count_words(text: str) -> int:
     """
     Count words in a text string.
@@ -28,6 +30,7 @@ def count_words(text: str) -> int:
 
 
 def main():
+    # Define the input source, output folder, and filtering thresholds for preprocessing.
     # ========= 1. Config =========
     input_file = RAW_DATA_DIR / "mtsamples.csv"
     output_dir = INTERIM_DATA_DIR
@@ -37,6 +40,7 @@ def main():
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Stop early when the expected raw CSV is missing.
     # ========= 2. Check input file =========
     if not input_file.exists():
         raise FileNotFoundError(
@@ -44,6 +48,7 @@ def main():
             "Please make sure 'mtsamples.csv' is under data/raw."
         )
 
+    # Load the raw dataset and validate the columns needed by later stages.
     # ========= 3. Load data =========
     df = pd.read_csv(input_file)
 
@@ -60,6 +65,7 @@ def main():
     df = df[required_cols].copy()
     original_count = len(df)
 
+    # Standardize whitespace and categorical text fields before filtering.
     # ========= 4. Clean key fields =========
     df["transcription"] = df["transcription"].apply(clean_text)
     df["medical_specialty"] = df["medical_specialty"].apply(
@@ -72,6 +78,7 @@ def main():
         ["nan", "None", "", " "], pd.NA
     )
 
+    # Remove rows that are unusable because critical inputs are blank.
     # ========= 5. Drop missing critical values =========
     before_missing_drop = len(df)
     df = df.dropna(subset=["transcription", "medical_specialty"])
@@ -80,12 +87,14 @@ def main():
     after_missing_drop = len(df)
     dropped_missing = before_missing_drop - after_missing_drop
 
+    # Drop exact duplicate note-specialty pairs to reduce training noise.
     # ========= 6. Remove duplicates =========
     before_dedup = len(df)
     df = df.drop_duplicates(subset=["transcription", "medical_specialty"]).reset_index(drop=True)
     after_dedup = len(df)
     dropped_duplicates = before_dedup - after_dedup
 
+    # Remove very short notes because they carry too little clinical context.
     # ========= 7. Remove abnormal records =========
     # Abnormal here means the transcription is too short to be useful
     df["word_count"] = df["transcription"].apply(count_words)
@@ -95,6 +104,7 @@ def main():
     after_abnormal_filter = len(df)
     dropped_abnormal = before_abnormal_filter - after_abnormal_filter
 
+    # Keep the most common specialties to create a balanced multi-class task.
     # ========= 8. Inspect specialty distribution =========
     specialty_counts_before_topn = df["medical_specialty"].value_counts()
 
@@ -105,14 +115,17 @@ def main():
     # Recalculate counts after filtering
     specialty_counts = df["medical_specialty"].value_counts()
 
+    # Rebuild the final table schema and attach stable record identifiers.
     # ========= 9. Standardize final columns =========
     df = df[["transcription", "medical_specialty", "keywords"]].copy()
     df.insert(0, "record_id", [f"REC_{i:05d}" for i in range(1, len(df) + 1)])
 
+    # Persist the cleaned master dataset for reuse by later modules.
     # ========= 10. Save cleaned dataset =========
     cleaned_path = output_dir / "cleaned_dataset.csv"
     df.to_csv(cleaned_path, index=False)
 
+    # Create stratified train/validation/test splits for reproducible experiments.
     # ========= 11. Train / val / test split =========
     # 70 / 15 / 15 stratified split
     train_df, temp_df = train_test_split(
@@ -141,6 +154,7 @@ def main():
     val_df.to_csv(val_path, index=False)
     test_df.to_csv(test_path, index=False)
 
+    # Visualize the retained label distribution for reporting and sanity checks.
     # ========= 12. Plot label distribution =========
     plt.figure(figsize=(14, 6))
     specialty_counts.plot(kind="bar")
@@ -154,6 +168,7 @@ def main():
     plt.savefig(plot_path, dpi=300)
     plt.close()
 
+    # Write a human-readable note summarizing the preprocessing decisions.
     # ========= 13. Write data note =========
     note_lines = []
     note_lines.append("Data Preparation Note")
@@ -183,6 +198,7 @@ def main():
     with open(note_path, "w", encoding="utf-8") as f:
         f.write("\n".join(note_lines))
 
+    # Print output locations and dataset sizes for quick command-line verification.
     # ========= 14. Print summary =========
     print("Done.")
     print(f"Input file: {input_file}")

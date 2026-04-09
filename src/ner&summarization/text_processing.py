@@ -106,6 +106,7 @@ def _rule_based_extract(text: str) -> dict:
     Rule-based medical entity extraction using curated keyword lists.
     Returns a dict with keys: diseases, symptoms, medications.
     """
+    # Match curated keywords first, then return sorted lists for stable downstream output.
     text_lower = text.lower()
     found = {"diseases": set(), "symptoms": set(), "medications": set()}
 
@@ -133,6 +134,7 @@ def _scispacy_extract(text: str) -> dict:
     Use scispaCy en_core_sci_sm to extract entities, then categorize them
     into diseases, symptoms, and medications using keyword heuristics.
     """
+    # Start from model-detected spans, then map them into the project-specific entity buckets.
     doc = nlp(text)
     raw_entities = list({ent.text.strip() for ent in doc.ents if len(ent.text.strip()) > 2})
 
@@ -152,6 +154,7 @@ def _scispacy_extract(text: str) -> dict:
             found["medications"].add(ent)
 
     # Supplement with rule-based to improve recall
+    # Merge in rule-based matches to recover common entities the model may miss.
     rule_results = _rule_based_extract(text)
     for cat in found:
         found[cat] = found[cat].union(set(rule_results[cat]))
@@ -175,6 +178,7 @@ def extract_entities(text: str) -> dict:
     -------
     dict : {"diseases": [...], "symptoms": [...], "medications": [...]}
     """
+    # Return empty buckets for invalid input to keep downstream code simple.
     if not text or not isinstance(text, str) or text.strip() == "":
         return {"diseases": [], "symptoms": [], "medications": []}
 
@@ -229,11 +233,13 @@ def generate_summary(text: str, num_sentences: int = 3) -> str:
     -------
     str : The extractive summary (top sentences joined by space).
     """
+    # Short-circuit empty notes before building any sentence-level features.
     if not text or not isinstance(text, str) or text.strip() == "":
         return ""
 
     sentences = _split_sentences(text)
 
+    # If the note is already short, reuse the original order as the summary.
     if len(sentences) <= num_sentences:
         return " ".join(sentences)
 
@@ -283,6 +289,7 @@ def format_evidence_layer(
     -------
     dict : Structured evidence layer with summary, entities, and metadata.
     """
+    # Combine summary, extracted entities, and lightweight metadata into one explainability payload.
     summary = generate_summary(text)
     entities = extract_entities(text)
 
@@ -306,6 +313,7 @@ def format_evidence_layer(
 # ============================================================================
 
 if __name__ == "__main__":
+    # Generate a small mock output file that demonstrates the evidence-layer structure.
     # --- Configuration ---
     TEST_CSV = INTERIM_DATA_DIR / "test.csv"
     OUTPUT_FILE = NER_SUMMARIZATION_DIR / "member_B_mock_results.json"

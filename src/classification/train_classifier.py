@@ -25,6 +25,7 @@ from src.config import (
 )
 
 
+# Clean raw text consistently across transcription and NER-derived features.
 def clean_text(text):
     if pd.isna(text):
         return ""
@@ -33,6 +34,7 @@ def clean_text(text):
     return text
 
 
+# Load train/validation/test splits plus the exported NER results.
 def load_data(project_root):
     train_path = INTERIM_DATA_DIR / "train.csv"
     val_path = INTERIM_DATA_DIR / "val.csv"
@@ -78,6 +80,7 @@ def load_data(project_root):
     return train_df, val_df, test_df, ner_df
 
 
+# Convert entity columns into a single text feature keyed by record_id.
 def prepare_ner_features(ner_df):
     ner_df = ner_df.copy()
 
@@ -108,6 +111,7 @@ def prepare_ner_features(ner_df):
     return ner_feature_df
 
 
+# Join structured NER features back onto each dataset split.
 def merge_features(base_df, ner_feature_df, df_name="dataset"):
     df = base_df.copy()
 
@@ -136,6 +140,7 @@ def merge_features(base_df, ner_feature_df, df_name="dataset"):
     return df
 
 
+# Define the candidate classifiers compared under the same feature pipeline.
 def build_models():
     models = {
         "logistic_regression": LogisticRegression(
@@ -157,6 +162,7 @@ def build_models():
     return models
 
 
+# Compute the summary metrics used for model selection.
 def evaluate_predictions(y_true, y_pred):
     acc = accuracy_score(y_true, y_pred)
     precision, recall, f1, _ = precision_recall_fscore_support(
@@ -170,6 +176,7 @@ def evaluate_predictions(y_true, y_pred):
     }
 
 
+# Train each candidate model for one feature type and keep the best performer.
 def train_and_select_best(train_df, val_df, feature_col):
     models = build_models()
     results = []
@@ -216,6 +223,7 @@ def train_and_select_best(train_df, val_df, feature_col):
     return results_df, best_pipeline, best_row
 
 
+# Persist a readable confusion matrix figure for the final test predictions.
 def save_confusion_matrix(y_true, y_pred, labels, output_path):
     fig, ax = plt.subplots(figsize=(14, 12))
     disp = ConfusionMatrixDisplay(
@@ -230,6 +238,7 @@ def save_confusion_matrix(y_true, y_pred, labels, output_path):
 
 
 def main():
+    # Initialize paths and ensure output directories exist before training.
     print("STEP 1: enter main()", flush=True)
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -248,6 +257,7 @@ def main():
     print(f"processed_dir = {processed_dir}", flush=True)
     print(f"model_dir = {model_dir}", flush=True)
 
+    # Load all required tabular inputs and prepare derived NER text features.
     print("STEP 3: start loading data", flush=True)
     train_df, val_df, test_df, ner_df = load_data(project_root)
     print("STEP 4: data loaded", flush=True)
@@ -257,6 +267,7 @@ def main():
     ner_feature_df = prepare_ner_features(ner_df)
     print("STEP 6: ner features ready", flush=True)
 
+    # Merge base text with NER-derived features for every dataset split.
     print("STEP 7: merge train", flush=True)
     train_df = merge_features(train_df, ner_feature_df, "train_df")
     print("STEP 8: merge val", flush=True)
@@ -265,6 +276,7 @@ def main():
     test_df = merge_features(test_df, ner_feature_df, "test_df")
     print("STEP 10: merge done", flush=True)
 
+    # Benchmark separate feature representations and collect their validation metrics.
     all_result_tables = []
     candidate_best = []
 
@@ -283,6 +295,7 @@ def main():
     all_result_tables.append(result_df)
     candidate_best.append((best_row, best_pipeline))
 
+    # Compare the best candidate from each feature representation.
     print("STEP 14: combine results", flush=True)
     all_results_df = pd.concat(all_result_tables, ignore_index=True)
     all_results_df = all_results_df.sort_values(by="macro_f1", ascending=False).reset_index(drop=True)
@@ -302,12 +315,14 @@ def main():
     if best_pipeline is None:
         raise ValueError("best_pipeline is None. Failed to match best model.")
 
+    # Run a final evaluation on the held-out test set with the chosen pipeline.
     print("STEP 16: start final test prediction", flush=True)
     test_pred = best_pipeline.predict(test_df[best_feature])
 
     test_metrics = evaluate_predictions(test_df["medical_specialty"], test_pred)
     labels = sorted(test_df["medical_specialty"].unique())
 
+    # Save prediction outputs, comparison tables, and a markdown summary report.
     print("STEP 17: save classification_results.csv", flush=True)
     results_df = pd.DataFrame({
         "record_id": test_df["record_id"],
@@ -346,6 +361,7 @@ def main():
     with open(processed_dir / "classification_metrics.md", "w", encoding="utf-8") as f:
         f.write("\n".join(report_text))
 
+    # Export the confusion matrix and serialized artifacts needed by the app pipeline.
     print("STEP 20: save confusion matrix", flush=True)
     save_confusion_matrix(
         test_df["medical_specialty"],

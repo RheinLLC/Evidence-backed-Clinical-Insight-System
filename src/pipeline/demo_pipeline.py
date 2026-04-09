@@ -23,6 +23,7 @@ from src.config import (
 BASE_DIR = Path(__file__).resolve().parent
 
 
+# Load the standalone NER/summarization module lazily so the demo can run even when optional files are absent.
 def _load_member_b_module(module_path: Path):
     """Dynamically load Member B's text_processing.py if available."""
     if not module_path.exists():
@@ -34,6 +35,7 @@ def _load_member_b_module(module_path: Path):
     return module
 
 
+# Standardize free-text inputs used across all inference stages.
 def _clean_text(text: Any) -> str:
     if pd.isna(text):
         return ""
@@ -52,6 +54,7 @@ class DemoPipelineV1:
     """
 
     def __init__(self, base_dir: Optional[Path] = None):
+        # Store artifact locations for the three integrated subsystems.
         self.base_dir = Path(base_dir) if base_dir else BASE_DIR
         self.cluster_model_path = CLUSTERING_MODELS_DIR / "cluster_model.pkl"
         self.cluster_vectorizer_path = CLUSTER_VECTORIZER_PATH
@@ -64,6 +67,7 @@ class DemoPipelineV1:
         self.mock_results_path = NER_SUMMARIZATION_DIR / "member_B_mock_results.json"
         self.member_b_module_path = NER_SUMMARIZATION_DIR / "text_processing.py"
 
+        # Load serialized models, lookup tables, and fallback mock outputs.
         self.cluster_model = self._load_joblib(self.cluster_model_path)
         self.cluster_vectorizer = self._load_joblib(self.cluster_vectorizer_path)
         self.cluster_interpretation = self._safe_read_csv(self.cluster_interpretation_path)
@@ -75,6 +79,7 @@ class DemoPipelineV1:
         self.member_b = _load_member_b_module(self.member_b_module_path)
         self.mock_results = self._load_mock_results()
 
+        # Infer which feature representation the saved classifier expects at prediction time.
         self.classification_feature_mode = self._infer_classification_feature_mode()
 
     def _load_joblib(self, path: Path):
@@ -125,6 +130,7 @@ class DemoPipelineV1:
         if not (test_path.exists() and ner_path.exists() and not self.classification_results.empty):
             return "hybrid_text"
 
+        # Recreate all candidate feature inputs and compare them to saved test predictions.
         test_df = pd.read_csv(test_path)
         ner_df = pd.read_csv(ner_path)
 
@@ -157,6 +163,7 @@ class DemoPipelineV1:
         return max(scores, key=scores.get)
 
     def run_ner_and_summary(self, text: str) -> Dict[str, Any]:
+        # Prefer the real Member B implementation, then fall back to stored mock outputs.
         if self.member_b is not None:
             entities = self.member_b.extract_entities(text)
             summary = self.member_b.generate_summary(text)
@@ -178,6 +185,7 @@ class DemoPipelineV1:
         }
 
     def predict_cluster(self, entity_text_all: str, summary: str, clean_text: str) -> Dict[str, Any]:
+        # Combine structured evidence with the summary, while falling back to raw text when needed.
         hybrid_text = _clean_text(f"{entity_text_all} {summary}")
         if not hybrid_text:
             hybrid_text = clean_text
@@ -193,6 +201,7 @@ class DemoPipelineV1:
         X = self.cluster_vectorizer.transform([hybrid_text])
         cluster_id = int(self.cluster_model.predict(X)[0])
 
+        # Look up a human-readable interpretation for the predicted cluster when available.
         if not self.cluster_interpretation.empty and "cluster_id" in self.cluster_interpretation.columns:
             row = self.cluster_interpretation[
                 self.cluster_interpretation["cluster_id"] == cluster_id
@@ -214,6 +223,7 @@ class DemoPipelineV1:
         }
 
     def predict_specialty(self, clean_text: str, entities: Dict[str, List[str]]) -> Dict[str, Any]:
+        # Build the feature representation expected by the saved classifier.
         if self.classifier is None:
             return {
                 "predicted_label": None,
@@ -233,6 +243,7 @@ class DemoPipelineV1:
         predicted_label = self.classifier.predict([input_text])[0]
         confidence = None
 
+        # Try to expose a confidence score when the underlying estimator supports probabilities.
         try:
             if hasattr(self.classifier, "predict_proba"):
                 probas = self.classifier.predict_proba([input_text])[0]
@@ -265,6 +276,7 @@ class DemoPipelineV1:
         cluster_result: Dict[str, Any],
         specialty_result: Dict[str, Any],
     ) -> str:
+        # Build a short explanation that ties prediction outputs back to extracted evidence.
         support_items = (
             entities.get("diseases", [])[:2]
             + entities.get("symptoms", [])[:3]
@@ -287,6 +299,7 @@ class DemoPipelineV1:
         )
 
     def analyze_emr(self, text: str) -> Dict[str, Any]:
+        # Run the full demo flow from preprocessing to explanation assembly.
         clean_text = self.preprocess_input(text)
         base_result = self.run_ner_and_summary(clean_text)
         entity_text_all = self._entities_to_text_jsonlike(base_result["entities"])
@@ -306,6 +319,7 @@ class DemoPipelineV1:
 
 
 if __name__ == "__main__":
+    # Provide a small local smoke test for the integrated pipeline.
     demo = DemoPipelineV1(base_dir=PIPELINE_DIR)
     sample_text = (
         "Patient presents with chest pain, shortness of breath, and history of "
